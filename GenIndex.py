@@ -5,6 +5,8 @@ from Util import Util
 
 class GenIndex:
     def getCateGory(dirInfo, fileInfo,param):
+        if len(fileInfo) == 0:
+            return ""
         if ":title" in fileInfo.keys():
             return "<li><a href = '%s'>%s</a></li>"% (re.sub('[\s]','_',(dirInfo)),  fileInfo[":title"])
         elif len(fileInfo.keys())>0:
