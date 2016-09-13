@@ -37,17 +37,19 @@ class ConvertMd:
                     fin = codecs.open(srcPath, "r", "utf-8")
                     content = fin.read()
                     fin.close()
+                    
                     md = markdown.Markdown(extensions=[markdown.extensions.toc.TocExtension(baselevel=1)],
                                            output_format="html")
-                    html = re.escape(md.convert(content))
+                    html = md.convert(content)
+                    html = ur'%s' % html
                     #print(html)
-                    defaultHtml = re.escape(Util.readAll(param["defaultPath"]))
+                    defaultHtml = Util.readAll(param["defaultPath"])
                     #print(defaultHtml)
-                    htmlContent = re.sub(ur"\{[\s]*\{[\s]*content[\s]*\}[\s]*\}", html, defaultHtml)
+                    htmlContent = re.sub(ur"{[\s]*{[\s]*content[\s]*}[\s]*}", html, defaultHtml)
                     #print(htmlContent)
-                    title = re.escape(os.path.split(srcPath)[-1][:srcPath.rfind(".")][:-3])
+                    title = os.path.split(srcPath)[-1][:srcPath.rfind(".")][:-3]
                     if not isinstance(title,unicode):
                         title = unicode(title,"utf-8")
-                    titleContent = re.sub(ur"\{[\s]*\{[\s]*title[\s]*\}[\s]*\}", title, htmlContent)
+                    titleContent = re.sub(ur"{[\s]*{[\s]*title[\s]*}[\s]*}", title, htmlContent)
                     Util.fwrite(re.sub(u'[\s]',u'_',desPath), titleContent)
                     return {":title":title}
