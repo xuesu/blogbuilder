@@ -38,7 +38,7 @@ class ConvertMd:
                     content = fin.read()
                     fin.close()
                     
-                    md = markdown.Markdown(extensions=[markdown.extensions.toc.TocExtension(baselevel=1)],
+                    md = markdown.Markdown(extensions=[markdown.extensions.toc.TocExtension(baselevel=1),"fenced_code","tables"],
                                            output_format="html")
                     html = md.convert(content)
                     html = ur'%s' % html
