@@ -3,6 +3,7 @@ import os
 import codecs
 
 class Util:
+    @staticmethod
     def fwriteb(desPath,srcPath):
         Util.checkDir(desPath)
         fout = open(desPath, "wb")
@@ -11,12 +12,14 @@ class Util:
         fout.close()
         fin.close()
 
+    @staticmethod
     def fwrite(desPath,content):
         Util.checkDir(desPath)
         fout = codecs.open(desPath, "w", "utf-8")
         fout.write(content)
         fout.close()
 
+    @staticmethod
     def checkDir(desPath):
         desDir = ""
         for str in os.path.split(desPath)[:-1]:
@@ -26,6 +29,7 @@ class Util:
             if not os.path.isdir(desDir):
                 raise ValueError(desDir + ":The Directory is already a file!!")
 
+    @staticmethod
     def readAll(srcPath):
         fin = codecs.open(srcPath,"r","utf-8")
         ans = fin.read()
@@ -33,6 +37,7 @@ class Util:
         return ans
 
 
+    @staticmethod
     def readLines(srcPath):
         fin = codecs.open(srcPath,"r","utf-8")
         ans = fin.readlines()
