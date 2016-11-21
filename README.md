@@ -23,5 +23,6 @@ Blog Builder是一个简单,轻量的静态博客生成工具,它无需任何数
 					- {{category}}文件目录
 		- _posts文件夹
 			- 放入.md博客文件以及其他博客文件
+			
 ### Attention
 .md中不能出现\g符号，必须用\\g代替（因为re.sub）
