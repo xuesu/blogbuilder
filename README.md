@@ -1,12 +1,14 @@
 #Blog Builder
 ##by xuesu
 ##Version 0.0.1
+
 ###功能说明
 Blog Builder是一个简单,轻量的静态博客生成工具,它无需任何数据库,其初步功能有
 
 2. 将.md文件通过网页模板转化为网页
 1. 按照用户文件目录树建立博客网站,请参照[http://xuesu.github.io](http://xuesu.github.io)
 2. 用户可自定义模板元素
+
 ###使用说明
 - python main.py execute &lt;blog文件所在位置&gt; 可以生成静态网站
 - blog所在文件夹需如此布置:
